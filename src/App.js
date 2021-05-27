@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import { useEffect } from 'react';
+import Home from './pages/home';
+import AddMeeting from './pages/addMeeting';
 import './App.css';
+import { Route, BrowserRouter as Router} from 'react-router-dom';
+
 
 function App() {
+
+  useEffect(() => {
+    console.log("componet App Did Mount");
+  },[])
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <Router>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/add-meeting" component={AddMeeting}/>
+        </Router>
+      </div>
   );
 }
+
 
 export default App;
